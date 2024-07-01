@@ -1,0 +1,17 @@
+class Solution(object):
+  def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+           
+        hashmap = {} 
+
+        for index, string in enumerate(strs):
+            sorted_string = ''.join(sorted(string))
+            if sorted_string in hashmap:
+                hashmap[sorted_string].append(string)
+            else:
+                hashmap[sorted_string] = [string]
+        return list(hashmap.values())
+   
